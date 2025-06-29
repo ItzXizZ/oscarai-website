@@ -63,15 +63,12 @@ const DesignIntro = () => {
             transition={{ duration: 1, delay: 0.3 }}
             className="relative group"
           >
-            <div className="absolute -inset-4 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
             <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-500">
               <img 
                 src="/Adobe Express - file (1).png" 
                 alt="Commercial Design" 
                 className="hero-image w-full h-auto transform group-hover:scale-105 transition-all duration-700"
               />
-              <div className="absolute -top-4 -right-4 w-20 h-20 bg-gradient-to-r from-green-500/30 to-emerald-500/30 rounded-full blur-lg animate-pulse-slow"></div>
-              <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-emerald-500/30 to-teal-500/30 rounded-full blur-lg animate-pulse-slow" style={{animationDelay: '2s'}}></div>
             </div>
           </motion.div>
 

@@ -81,7 +81,7 @@ const Hero = () => {
       >
         <div className="animate-bounce">
           <div className="w-5 h-8 border-2 border-white/30 rounded-full flex justify-center">
-            <div className="w-1 h-2 bg-white/50 rounded-full mt-1.5 animate-pulse"></div>
+            <div className="w-1 h-2 bg-white/50 rounded-full mt-1.5"></div>
           </div>
         </div>
       </motion.div>

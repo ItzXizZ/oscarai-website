@@ -107,7 +107,7 @@ const Technology = () => {
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="font-semibold text-text-dark">Camera Feed</h4>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                     <span className="text-sm text-green-600">Live</span>
                   </div>
                 </div>
@@ -119,7 +119,7 @@ const Technology = () => {
                 <div className="text-center">
                   <div className="text-sm text-neutral-gray mb-2">Processing Status</div>
                   <div className="bg-secondary-green/20 rounded-full h-2">
-                    <div className="bg-secondary-green h-2 rounded-full w-3/4 animate-pulse"></div>
+                    <div className="bg-secondary-green h-2 rounded-full w-3/4"></div>
                   </div>
                 </div>
               </div>
