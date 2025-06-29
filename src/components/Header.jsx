@@ -1,94 +1,108 @@
 import React, { useState, useEffect } from 'react'
-import { Menu, X, Zap } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Menu, X } from 'lucide-react'
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
+      setIsScrolled(window.scrollY > 20)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'Technology', href: '#technology' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'About', href: '#about' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Ambassadors', href: '#ambassadors' },
+    { name: 'Products', href: '#products' }
   ]
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
-    }`}>
-      <nav className="container-custom">
-        <div className="flex items-center justify-between py-4">
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.8 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled 
+          ? 'bg-black/70 backdrop-blur-2xl border-b border-white/5' 
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-8 lg:px-12">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="bg-primary-blue p-2 rounded-lg">
-              <Zap className="h-6 w-6 text-white" />
-            </div>
-            <span className="font-bold text-xl text-primary-blue">OscarAI</span>
-          </div>
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center"
+          >
+            <h1 className="text-3xl font-semibold gradient-text">OscarAI</h1>
+          </motion.div>
 
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex items-center space-x-12">
             {navItems.map((item) => (
-              <li key={item.name}>
-                <a 
-                  href={item.href} 
-                  className="text-text-dark hover:text-primary-blue transition-colors duration-200 font-medium"
-                >
-                  {item.name}
-                </a>
-              </li>
+              <motion.a
+                key={item.name}
+                href={item.href}
+                whileHover={{ y: -2 }}
+                className="text-gray-300 hover:text-white transition-all duration-300 font-medium text-lg"
+                style={{ letterSpacing: '-0.01em' }}
+              >
+                {item.name}
+              </motion.a>
             ))}
-          </ul>
+          </nav>
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <a href="#preorder" className="btn-success">
-              Pre-Order Now
-            </a>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn-apple text-base px-8 py-3"
+            >
+              Pre-Order
+            </motion.button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-3 text-white rounded-full hover:bg-white/10 transition-colors"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200">
-            <div className="py-4 space-y-4">
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden bg-black/95 backdrop-blur-2xl border border-white/10 mt-4 rounded-3xl p-8"
+          >
+            <nav className="space-y-6">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="block px-4 py-2 text-text-dark hover:text-primary-blue transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
+                  className="block text-gray-300 hover:text-white transition-colors duration-300 font-medium text-xl py-3"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={{ letterSpacing: '-0.01em' }}
                 >
                   {item.name}
                 </a>
               ))}
-              <div className="px-4">
-                <a href="#preorder" className="btn-success w-full text-center block">
-                  Pre-Order Now
-                </a>
-              </div>
-            </div>
-          </div>
+              <button className="btn-apple w-full mt-6">
+                Pre-Order
+              </button>
+            </nav>
+          </motion.div>
         )}
-      </nav>
-    </header>
+      </div>
+    </motion.header>
   )
 }
 
