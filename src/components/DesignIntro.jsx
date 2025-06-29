@@ -15,11 +15,6 @@ const DesignIntro = () => {
       description: "Perfect for commercial spaces, offices, and retail environments"
     },
     {
-      icon: TrendingUp,
-      title: "Scalable Solution",
-      description: "Designed for high-volume commercial waste processing"
-    },
-    {
       icon: Globe,
       title: "Universal Compatibility",
       description: "Fits seamlessly into existing commercial infrastructure"
@@ -37,13 +32,13 @@ const DesignIntro = () => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1.8 }}
           className="text-center mb-20"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 1.4, delay: 0.6 }}
             className="inline-flex items-center space-x-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full px-8 py-4 mb-8"
           >
             <Sparkles className="w-6 h-6 text-green-400" />
@@ -60,7 +55,7 @@ const DesignIntro = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 1, delay: 0.3 }}
+            transition={{ duration: 1.6, delay: 0.8 }}
             className="relative group"
           >
             <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all duration-500">
@@ -75,14 +70,14 @@ const DesignIntro = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 1.6, delay: 1.0 }}
             className="space-y-10"
           >
             <div className="text-left">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                transition={{ duration: 1.4, delay: 1.2 }}
                 className="flex items-center space-x-4 mb-6"
               >
                 <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 p-3 rounded-2xl">
@@ -108,7 +103,7 @@ const DesignIntro = () => {
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.8, delay: 0.7 + index * 0.1 }}
+                    transition={{ duration: 1.2, delay: 1.6 + index * 0.4 }}
                     className="glass-card text-left hover:scale-105 transform transition-all duration-300 group"
                   >
                     <div className="flex items-start space-x-4">

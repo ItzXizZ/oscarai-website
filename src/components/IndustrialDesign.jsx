@@ -23,11 +23,6 @@ const IndustrialDesign = () => {
       icon: Shield,
       title: "Industrial Grade Protection",
       description: "IP65 rated with chemical resistance and extreme temperature tolerance"
-    },
-    {
-      icon: Battery,
-      title: "Extended Operation",
-      description: "Long-lasting power systems designed for continuous industrial use"
     }
   ]
 
@@ -44,13 +39,13 @@ const IndustrialDesign = () => {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1.8 }}
           className="text-center mb-20"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 1.4, delay: 0.6 }}
             className="inline-flex items-center space-x-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full px-8 py-4 mb-8"
           >
             <Cog className="w-6 h-6 text-green-400 animate-spin-slow" />
@@ -67,14 +62,14 @@ const IndustrialDesign = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 1.6, delay: 1.0 }}
             className="space-y-10"
           >
             <div className="text-left">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
+                transition={{ duration: 1.4, delay: 1.2 }}
                 className="flex items-center space-x-4 mb-6"
               >
                 <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 p-3 rounded-2xl border border-green-400/20">
@@ -100,7 +95,7 @@ const IndustrialDesign = () => {
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.8, delay: 0.7 + index * 0.1 }}
+                    transition={{ duration: 1.2, delay: 1.6 + index * 0.4 }}
                     className="bg-white/5 backdrop-blur-xl border border-green-400/20 rounded-3xl p-6 hover:bg-white/10 hover:border-green-400/40 transition-all duration-300 group"
                   >
                     <div className="flex items-start space-x-4">
@@ -125,7 +120,7 @@ const IndustrialDesign = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
-            transition={{ duration: 1, delay: 0.3 }}
+            transition={{ duration: 1.6, delay: 0.8 }}
             className="relative group"
           >
             <div className="relative bg-gradient-to-br from-slate-800/50 to-gray-800/50 backdrop-blur-xl border border-green-400/20 rounded-3xl p-8 hover:border-green-400/40 transition-all duration-500">
