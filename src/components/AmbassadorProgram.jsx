@@ -128,10 +128,9 @@ const AmbassadorProgram = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative group"
+            className="relative"
           >
-            <div className="absolute -inset-2 bg-gradient-to-r from-green-500/30 to-emerald-500/30 rounded-3xl blur-lg group-hover:blur-xl transition-all duration-300"></div>
-            <div className="relative bg-gradient-to-r from-green-500/10 to-emerald-500/10 backdrop-blur-xl border border-green-400/30 rounded-3xl px-10 py-8 inline-block mt-8 group-hover:border-green-400/50 transition-all duration-300">
+            <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 backdrop-blur-xl border border-green-400/30 rounded-3xl px-10 py-8 inline-block mt-8">
               <div className="flex items-center justify-center space-x-6">
                 <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 p-4 rounded-2xl border border-green-400/30">
                   <Gift className="w-10 h-10 text-green-400" />
@@ -141,7 +140,6 @@ const AmbassadorProgram = () => {
                   <div className="text-xl text-gray-300 font-light">For accepted student ambassadors</div>
                 </div>
               </div>
-              <div className="absolute top-2 right-2 w-4 h-4 bg-green-400/30 rounded-full animate-pulse"></div>
             </div>
           </motion.div>
         </motion.div>

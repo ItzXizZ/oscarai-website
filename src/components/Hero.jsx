@@ -3,9 +3,9 @@ import { motion } from 'framer-motion'
 
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-black relative px-8 py-16">
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
+    <section className="min-h-screen flex items-center justify-center bg-black relative px-4 py-12">
+      <div className="max-w-5xl mx-auto w-full">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Column - Content */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
@@ -17,7 +17,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="text-6xl md:text-7xl lg:text-8xl font-semibold mb-8"
+              className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-5"
               style={{ 
                 lineHeight: '0.9', 
                 letterSpacing: '-0.04em',
@@ -31,7 +31,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.7 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-300 mb-12 leading-tight"
+              className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-300 mb-8 leading-tight"
               style={{ 
                 letterSpacing: '-0.02em',
                 fontWeight: 300 
@@ -44,7 +44,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.9 }}
-              className="text-xl md:text-2xl text-gray-400 mb-16 leading-relaxed max-w-xl"
+              className="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed max-w-lg"
               style={{ 
                 letterSpacing: '-0.01em',
                 fontWeight: 400 
@@ -67,10 +67,6 @@ const Hero = () => {
                 alt="OscarAI Device" 
                 className="w-full h-auto hero-image animate-float"
               />
-              
-              {/* Floating accent elements - changed to green theme */}
-              <div className="absolute -top-8 -right-8 w-24 h-24 bg-green-500/20 rounded-full blur-xl animate-pulse-slow"></div>
-              <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-emerald-500/15 rounded-full blur-xl animate-pulse-slow" style={{animationDelay: '2s'}}></div>
             </div>
           </motion.div>
         </div>
@@ -81,11 +77,11 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.8 }}
-        className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
       >
         <div className="animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+          <div className="w-5 h-8 border-2 border-white/30 rounded-full flex justify-center">
+            <div className="w-1 h-2 bg-white/50 rounded-full mt-1.5 animate-pulse"></div>
           </div>
         </div>
       </motion.div>

@@ -27,7 +27,7 @@ const DesignIntro = () => {
     {
       icon: DollarSign,
       title: "Cost Effective",
-      description: "Under $300 manufacturing cost with premium finish"
+      description: "Under $100 manufacturing cost with premium finish"
     }
   ]
 
