@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import Hero from './components/Hero'
 import DesignIntro from './components/DesignIntro'
 import IndustrialDesign from './components/IndustrialDesign'
-import AmbassadorProgram from './components/AmbassadorProgram'
+import LeadershipStructure from './components/LeadershipStructure'
 import ECommerce from './components/ECommerce'
 // import Statistics from './components/Statistics'
 import ComingSoon from './components/ComingSoon'
@@ -17,7 +17,7 @@ function App() {
         <Hero />
         <DesignIntro />
         <IndustrialDesign />
-        <AmbassadorProgram />
+        <LeadershipStructure />
         <ECommerce />
         {/* <Statistics /> */}
         <ComingSoon />

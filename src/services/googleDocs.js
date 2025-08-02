@@ -69,7 +69,7 @@ class GoogleDocsService {
       await this.initializeGoogleAPI();
       
       // Create the document
-      const title = `OscarAI Ambassador Application - ${applicationData.name} - ${new Date().toLocaleDateString()}`;
+      const title = `OscarAI ${applicationData.position || 'Leadership'} Application - ${applicationData.name} - ${new Date().toLocaleDateString()}`;
       const folderId = import.meta.env.VITE_GOOGLE_DRIVE_FOLDER_ID || null;
       
       console.log('📝 Creating document with title:', title);
