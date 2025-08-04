@@ -4,32 +4,20 @@ import { useInView } from 'framer-motion'
 import { 
   Users, 
   TrendingUp, 
-  Award, 
-  Target, 
   ChevronRight, 
   UserPlus, 
   X,
   Briefcase,
   Code,
-  Megaphone,
-  Video,
   MapPin,
-  Crown
+  Crown,
+  ExternalLink
 } from 'lucide-react'
-import GoogleDocsService from '../services/googleDocs'
 
 const LeadershipStructure = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
   const [selectedPosition, setSelectedPosition] = useState(null)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    experience: '',
-    motivation: '',
-    availability: ''
-  })
 
   // Leadership hierarchy data
   const leadershipHierarchy = {
@@ -132,61 +120,26 @@ const LeadershipStructure = () => {
 
   const handlePositionClick = (categoryKey, position) => {
     setSelectedPosition({ category: categoryKey, ...position })
-    setFormData({
-      name: '',
-      email: '',
-      experience: '',
-      motivation: '',
-      availability: ''
-    })
   }
 
-  const handleFormSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    try {
-      const applicationData = {
-        ...formData,
-        position: selectedPosition.title,
-        category: selectedPosition.category,
-        appliedAt: new Date().toISOString()
-      }
-
-      const googleDocsService = new GoogleDocsService()
-      await googleDocsService.initialize()
-      
-      const result = await googleDocsService.createApplicationDocument(applicationData)
-      
-      if (result.success) {
-        alert(`Thank you for applying to ${selectedPosition.title}! Your application has been saved and we'll review it within 1-2 weeks.`)
-      } else {
-        alert('Your application was received! We have your information and will review it within 1-2 weeks.')
-      }
-      
-      setSelectedPosition(null)
-      setFormData({
-        name: '',
-        email: '',
-        experience: '',
-        motivation: '',
-        availability: ''
-      })
-    } catch (error) {
-      console.error('Error submitting application:', error)
-      alert('Thank you for your application! We\'ll review it and get back to you within 1-2 weeks.')
-      setSelectedPosition(null)
-    } finally {
-      setIsSubmitting(false)
+  // Function to get the correct Google Form URL for each position
+  const getFormUrl = (positionId) => {
+    switch (positionId) {
+      case 'growth-trainee':
+      case 'growth-intern':
+        return 'https://forms.gle/ohmPvUmn1rDYe6DU9';
+      case 'software-engineer':
+        return 'https://forms.gle/oWtyStV5hv6TQnQn7';
+      case 'product-engineer':
+        return 'https://forms.gle/qRDVEAMzxmALmLKb6';
+      default:
+        return null; // No form available for this position
     }
   }
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }))
+  // Function to check if a position is actively accepting applications
+  const isAcceptingApplications = (positionId) => {
+    return getFormUrl(positionId) !== null;
   }
 
   return (
@@ -265,10 +218,16 @@ const LeadershipStructure = () => {
                           </ul>
                         </div>
 
-                        <button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
-                          <span>Apply Now</span>
-                          <ChevronRight className="w-4 h-4" />
-                        </button>
+                        {isAcceptingApplications(position.id) ? (
+                          <button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
+                            <span>Apply Now</span>
+                            <ChevronRight className="w-4 h-4" />
+                          </button>
+                        ) : (
+                          <button className="w-full bg-gray-600 text-gray-300 px-4 py-2 rounded-xl font-medium text-sm cursor-not-allowed flex items-center justify-center space-x-2">
+                            <span>Not Currently Hiring</span>
+                          </button>
+                        )}
                       </div>
 
                       {/* Level indicator */}
@@ -284,14 +243,14 @@ const LeadershipStructure = () => {
         </div>
       </div>
 
-      {/* Application Modal */}
+      {/* Application Modal with Google Forms */}
       {selectedPosition && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3 }}
-            className="bg-gray-900 border border-white/20 rounded-2xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            className="bg-gray-900 border border-white/20 rounded-2xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
           >
             <div className="flex items-center justify-between mb-6">
               <div>
@@ -308,101 +267,40 @@ const LeadershipStructure = () => {
               </button>
             </div>
 
-            <div className="mb-6 p-4 bg-white/5 rounded-xl">
-              <h4 className="font-semibold text-white mb-2">Position Details:</h4>
-              <p className="text-gray-300 text-sm mb-3">{selectedPosition.description}</p>
-              <div className="space-y-1">
-                <h5 className="text-sm font-semibold text-white">Requirements:</h5>
-                {selectedPosition.requirements.map((req, i) => (
-                  <p key={i} className="text-xs text-gray-400">• {req}</p>
-                ))}
+            {getFormUrl(selectedPosition.id) ? (
+              <iframe
+                src={getFormUrl(selectedPosition.id)}
+                width="100%"
+                height="600"
+                frameBorder="0"
+                marginHeight="0"
+                marginWidth="0"
+                title="Application Form"
+                className="rounded-xl"
+              ></iframe>
+            ) : (
+              <div className="text-center py-16">
+                <div className="bg-yellow-500/20 border border-yellow-500/30 rounded-xl p-8 mb-6">
+                  <h4 className="text-xl font-semibold text-yellow-400 mb-4">Position Currently Unavailable</h4>
+                  <p className="text-gray-300 mb-4">
+                    We are not currently accepting applications for <strong>{selectedPosition.title}</strong>.
+                  </p>
+                  <p className="text-gray-400 text-sm">
+                    This position may become available in the future based on team growth and performance milestones. 
+                    Please check back later or apply for our currently open positions.
+                  </p>
+                </div>
+                <div className="text-left">
+                  <h5 className="text-lg font-semibold text-white mb-3">Currently Accepting Applications:</h5>
+                  <ul className="text-green-400 space-y-2">
+                    <li>• Growth Trainee (Marketing)</li>
+                    <li>• Official Growth Intern (Marketing)</li>
+                    <li>• Software Engineering Intern</li>
+                    <li>• Product Engineering Intern</li>
+                  </ul>
+                </div>
               </div>
-            </div>
-
-            <form onSubmit={handleFormSubmit} className="space-y-6">
-              <div>
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Full Name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="form-input"
-                />
-              </div>
-
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="form-input"
-                />
-              </div>
-
-              <div>
-                <textarea
-                  name="experience"
-                  placeholder="Relevant Experience & Skills (describe your background that makes you suitable for this role)"
-                  value={formData.experience}
-                  onChange={handleInputChange}
-                  required
-                  className="form-textarea h-24"
-                />
-              </div>
-
-              <div>
-                <textarea
-                  name="motivation"
-                  placeholder="Why do you want this position? What motivates you to work with OscarAI?"
-                  value={formData.motivation}
-                  onChange={handleInputChange}
-                  required
-                  className="form-textarea h-24"
-                />
-              </div>
-
-              <div>
-                <select
-                  name="availability"
-                  value={formData.availability}
-                  onChange={handleInputChange}
-                  required
-                  className="form-input"
-                >
-                  <option value="">Select Your Availability</option>
-                  <option value="part-time">Part-time (10-20 hours/week)</option>
-                  <option value="full-time">Full-time (30+ hours/week)</option>
-                  <option value="flexible">Flexible schedule</option>
-                  <option value="weekends">Weekends only</option>
-                </select>
-              </div>
-
-              <div className="flex space-x-4 pt-4">
-                <button
-                  type="button"
-                  onClick={() => setSelectedPosition(null)}
-                  className="flex-1 bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`flex-1 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center space-x-2 ${
-                    isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
-                >
-                  <span>{isSubmitting ? 'Submitting...' : 'Submit Application'}</span>
-                  {!isSubmitting && <ChevronRight className="w-5 h-5" />}
-                  {isSubmitting && <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>}
-                </button>
-              </div>
-            </form>
+            )}
           </motion.div>
         </div>
       )}
