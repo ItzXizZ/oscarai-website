@@ -4,7 +4,6 @@ import './Navigation.css';
 
 const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isScrolling, setIsScrolling] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,7 +17,7 @@ const Navigation: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      setIsScrolling(true);
+
       const navHeight = 120; // Navigation height + extra space for title visibility
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navHeight;
@@ -42,7 +41,6 @@ const Navigation: React.FC = () => {
         if (progress < duration) {
           requestAnimationFrame(animateScroll);
         } else {
-          setIsScrolling(false);
         }
       };
 

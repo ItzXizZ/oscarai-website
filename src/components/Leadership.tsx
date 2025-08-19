@@ -260,12 +260,7 @@ const leadershipData: LeadershipMember[] = [
     return levelMembers.filter(member => member.department === activeDepartment);
   };
 
-  const getFilteredMembers = () => {
-    if (activeDepartment === 'all') {
-      return leadershipData;
-    }
-    return leadershipData.filter(member => member.department === activeDepartment);
-  };
+
 
   const handleMemberClick = (memberId: string) => {
     setSelectedMember(selectedMember === memberId ? null : memberId);

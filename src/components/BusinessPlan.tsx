@@ -85,12 +85,7 @@ const BusinessPlan: React.FC = () => {
     }
   ];
 
-  const keyAdvantages = [
-    { icon: '🌱', title: 'Environmental Timing', description: 'Climate change awareness provides natural viral potential' },
-    { icon: '🎓', title: 'Educational Market', description: 'Schools actively seeking sustainability solutions' },
-    { icon: '🤖', title: 'Technology Integration', description: 'AI-powered waste sorting addresses real institutional needs' },
-    { icon: '📈', title: 'Scalable Model', description: 'Growth strategy supports transition from prototype to commercial production' }
-  ];
+
 
   const getStatusColor = (status: string) => {
     switch (status) {

@@ -29,7 +29,7 @@ const PreOrder: React.FC = () => {
     'oscar-3d-files': 0,
     'oscar-production': 0
   });
-  const [showOrderSummary, setShowOrderSummary] = useState(false);
+
 
   const products: Product[] = [
     {
@@ -273,7 +273,6 @@ const PreOrder: React.FC = () => {
               
               <button 
                 className="btn btn-primary checkout-btn"
-                onClick={() => setShowOrderSummary(true)}
               >
                 Proceed to Checkout
               </button>

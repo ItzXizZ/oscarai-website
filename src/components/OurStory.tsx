@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import './OurStory.css';
 
 interface TimelineEvent {
@@ -116,74 +116,14 @@ const timelineEvents: TimelineEvent[] = [
   }
 ];
 
-const TimelineItem: React.FC<{ event: TimelineEvent; index: number; isActive: boolean }> = ({ event, index, isActive }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  return (
-    <motion.div
-      ref={ref}
-      className={`timeline-item ${isActive ? 'active' : ''}`}
-      initial={{ opacity: 0, x: -50 }}
-      animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.8, delay: 0.2 }}
-    >
-      <div className="timeline-marker">
-        <div className="timeline-dot"></div>
-      </div>
-      
-      <div className="timeline-content">
-        <div className="timeline-date">{event.date}</div>
-        <h3 className="timeline-title">{event.title}</h3>
-        <p className="timeline-description">{event.description}</p>
-        
-        {event.metrics && (
-          <div className="timeline-metrics">
-            {event.metrics.map((metric, idx) => (
-              <div key={idx} className="metric">
-                <div className="metric-value">{metric.value}</div>
-                <div className="metric-label">{metric.label}</div>
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
-    </motion.div>
-  );
-};
 
-const ImageDisplay: React.FC<{ event: TimelineEvent }> = ({ event }) => {
-  return (
-    <div className="image-display">
-      <div className="large-image-container">
-        <img 
-          src={event.image} 
-          alt={event.title}
-          className="large-image"
-          onError={(e) => {
-            const target = e.target as HTMLImageElement;
-            target.style.display = 'none';
-            const fallback = target.nextElementSibling as HTMLElement;
-            if (fallback) fallback.style.display = 'flex';
-          }}
-        />
-        <div className="image-fallback" style={{ display: 'none' }}>
-          <span className="fallback-text">Image Loading...</span>
-        </div>
-      </div>
-      
-      <div className="large-caption">
-        <h2 className="caption-title">{event.title}</h2>
-        <p className="caption-description">{event.description}</p>
-        <div className="caption-date">{event.date}</div>
-      </div>
-    </div>
-  );
-};
+
+
 
 const OurStory: React.FC = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
-  const [activeEventIndex, setActiveEventIndex] = useState(0);
+
 
   useEffect(() => {
     const updateProgress = () => {
@@ -201,9 +141,7 @@ const OurStory: React.FC = () => {
       // Update CSS custom property
       timeline.style.setProperty('--timeline-progress', `${progress * 100}%`);
       
-      // Update active event based on scroll
-      const eventIndex = Math.floor(progress * timelineEvents.length);
-      setActiveEventIndex(Math.min(eventIndex, timelineEvents.length - 1));
+
     };
 
     const handleScroll = () => {
