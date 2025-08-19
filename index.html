@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscar AI - Smart Waste Management</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/OBJLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/MTLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1 class="logo">Oscar AI</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#fundraising" class="nav-link">Fundraising</a>
+                <a href="#recruitment" class="nav-link">Recruitment</a>
+                <a href="#story" class="nav-link">Our Story</a>
+                <a href="#preorder" class="nav-link pre-order-btn">Pre-Order</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-left">
+                    <h1 class="hero-title">
+                        <span class="title-main">Oscar AI</span>
+                        <span class="title-subtitle">Smart Waste Processing</span>
+                    </h1>
+                    <p class="hero-description">
+                        Revolutionary AI-powered waste management system that automatically sorts and processes trash with intelligent recognition technology.
+                    </p>
+                    <div class="hero-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">🤖</div>
+                            <span>AI Recognition</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">♻️</div>
+                            <span>Auto Sorting</span>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">📱</div>
+                            <span>Smart Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-right">
+                    <!-- Phone Mockup in Hero -->
+                    <div class="hero-phone-mockup">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <div class="tiktok-overlay">
+                                    <div class="tiktok-header">
+                                        <div class="tiktok-user">
+                                            <div class="user-avatar">🤖</div>
+                                            <div class="user-info">
+                                                <div class="username">@oscar_ai_official</div>
+                                                <div class="user-handle">Smart Waste Tech</div>
+                                            </div>
+                                        </div>
+                                        <div class="follow-btn">Follow</div>
+                                    </div>
+                                    
+                                    <div class="video-content">
+                                        <video class="demo-video" autoplay muted loop playsinline preload="auto">
+                                            <source src="oscarvideo.mov" type="video/quicktime">
+                                            <source src="oscarvideo.mov" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <div class="video-placeholder">
+                                            <div class="placeholder-content">
+                                                <div class="trash-animation">🗑️</div>
+                                                <p>Watch Oscar AI sort waste automatically!</p>
+                                                <div class="sorting-demo">
+                                                    <div class="waste-item">🥤</div>
+                                                    <div class="waste-item">📄</div>
+                                                    <div class="waste-item">🍎</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tiktok-sidebar">
+                                        <div class="sidebar-item">
+                                            <div class="sidebar-icon">❤️</div>
+                                            <div class="sidebar-count">12.4K</div>
+                                        </div>
+                                        <div class="sidebar-item">
+                                            <div class="sidebar-icon">💬</div>
+                                            <div class="sidebar-count">892</div>
+                                        </div>
+                                        <div class="sidebar-item">
+                                            <div class="sidebar-icon">📤</div>
+                                            <div class="sidebar-count">456</div>
+                                        </div>
+                                        <div class="sidebar-item">
+                                            <div class="sidebar-icon spinning">🎵</div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tiktok-bottom">
+                                        <div class="video-description">
+                                            <p><strong>@oscar_ai_official</strong> Revolutionary AI waste sorting! 🤖♻️ #TechForGood #AI #Sustainability #Innovation</p>
+                                        </div>
+                                        <div class="music-info">
+                                            <span>♪ Original sound - Oscar AI</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive 3D Demo Section -->
+        <section class="demo-section">
+            <div class="demo-content">
+                <h2 class="section-title">Interactive Oscar AI Experience</h2>
+                <p class="section-subtitle">Click and drag to explore • Drop trash items to see AI sorting in action</p>
+                
+                <div class="interactive-demo">
+                    <!-- 3D Model Container -->
+                    <div class="model-container">
+                        <div id="three-container" class="three-container"></div>
+                        <div class="model-glow"></div>
+                        <div class="floating-particles"></div>
+                        
+                        <!-- Interaction Controls -->
+                        <div class="interaction-controls">
+                            <h3>Try Dropping Waste Items:</h3>
+                            <div class="trash-items">
+                                <div class="trash-item" data-type="plastic" draggable="true">🥤</div>
+                                <div class="trash-item" data-type="paper" draggable="true">📄</div>
+                                <div class="trash-item" data-type="organic" draggable="true">🍎</div>
+                                <div class="trash-item" data-type="metal" draggable="true">🥫</div>
+                                <div class="trash-item" data-type="glass" draggable="true">🍾</div>
+                            </div>
+                            <p class="instruction-text">Drag items above the bin to see Oscar AI's sorting magic!</p>
+                        </div>
+
+                        <!-- Color Customization Panel -->
+                        <div class="customization-panel">
+                            <h3>Customize Your Oscar AI:</h3>
+                            <div class="color-controls">
+                                <div class="color-option">
+                                    <label>Bin Color:</label>
+                                    <input type="color" id="bin-color" value="#333333">
+                                </div>
+                                <div class="color-option">
+                                    <label>Accent Color:</label>
+                                    <input type="color" id="accent-color" value="#22c55e">
+                                </div>
+                                <div class="color-option">
+                                    <label>Glow Intensity:</label>
+                                    <input type="range" id="glow-intensity" min="0" max="1" step="0.1" value="0.3">
+                                </div>
+                            </div>
+                            <div class="animation-controls">
+                                <button id="demo-sorting" class="demo-btn">Demo AI Sorting</button>
+                                <button id="reset-scene" class="demo-btn">Reset Scene</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Features List -->
+                    <div class="features-list">
+                        <div class="feature-card">
+                            <div class="feature-icon-large">🎯</div>
+                            <h3>99% Accuracy</h3>
+                            <p>Advanced computer vision identifies materials with exceptional precision</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon-large">⚡</div>
+                            <h3>Real-time Processing</h3>
+                            <p>Instant waste categorization and sorting decisions</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon-large">🌱</div>
+                            <h3>Eco-Friendly</h3>
+                            <p>Reduce contamination and maximize recycling efficiency</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon-large">🤖</div>
+                            <h3>AI Learning</h3>
+                            <p>Continuously improves sorting accuracy through machine learning</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to Transform Waste Management?</h2>
+                <p>Join the future of intelligent waste processing with Oscar AI</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary glow-btn">Pre-Order Now</button>
+                    <button class="btn btn-secondary">Learn More</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Background Effects -->
+    <div class="bg-effects">
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

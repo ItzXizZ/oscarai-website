@@ -1,0 +1,810 @@
+.leadership {
+  background: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.leadership-hero {
+  padding: 1rem 0 1rem;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.02), rgba(255, 255, 255, 1));
+}
+
+.leadership-hero::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(34, 197, 94, 0.05));
+  animation: floatShape 25s ease-in-out infinite;
+}
+
+.leadership-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 20%;
+  right: 15%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(34, 197, 94, 0.03));
+  animation: floatShape 25s ease-in-out infinite 10s;
+}
+
+.leadership-hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.leadership-title {
+  font-size: 5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.title-line {
+  display: block;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 4px 20px rgba(34, 197, 94, 0.3);
+}
+
+.leadership-subtitle {
+  font-size: 1.4rem;
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Department Toggles */
+.department-toggles {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.dept-toggle {
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  border: 2px solid var(--dept-color, #22c55e);
+  background: transparent;
+  color: var(--dept-color, #22c55e);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.dept-toggle:hover {
+  background: var(--dept-color, #22c55e);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.dept-toggle.active {
+  background: var(--dept-color, #22c55e);
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Team Structure */
+.team-section {
+  padding: 4rem 0;
+  position: relative;
+}
+
+.team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+}
+
+/* Team Levels */
+.team-level {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.team-level.active {
+  transform: scale(1.01);
+}
+
+.level-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #22c55e;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+  padding: 0.5rem 1.5rem;
+  background: rgba(34, 197, 94, 0.1);
+  border-radius: 25px;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.members-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Level-specific styling */
+.level-1 .members-row {
+  gap: 2rem;
+  justify-content: center;
+}
+
+.level-2 .members-row {
+  gap: 2rem;
+  justify-content: center;
+}
+
+.level-3 .members-row {
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Member Cards */
+.member-card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.member-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(34, 197, 94, 0.02));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 20px;
+}
+
+.member-card:hover::before,
+.member-card.selected::before {
+  opacity: 1;
+}
+
+.member-card:hover {
+  border-color: rgba(34, 197, 94, 0.3);
+  box-shadow: 0 8px 30px rgba(34, 197, 94, 0.15);
+}
+
+.member-card.selected {
+  border-color: #22c55e;
+  box-shadow: 0 8px 30px rgba(34, 197, 94, 0.25);
+}
+
+/* Department Head Cards - Largest */
+.head-card {
+  width: 280px;
+  height: 360px;
+  border: 2px solid var(--member-color, rgba(34, 197, 94, 0.2));
+  margin: 0 0.5rem;
+}
+
+.head-card .member-image {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+}
+
+.head-card .member-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+/* Chapter Head Cards - Medium */
+.chapter-card {
+  width: 260px;
+  height: 320px;
+  border: 1px solid var(--member-color, rgba(34, 197, 94, 0.2));
+}
+
+.chapter-card .member-image {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1rem;
+}
+
+.chapter-card .member-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Team Member Cards - Smaller */
+.team-card {
+  width: 240px;
+  height: 300px;
+  border: 1px solid var(--member-color, rgba(34, 197, 94, 0.15));
+}
+
+.team-card .member-image {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+}
+
+.team-card .member-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Member Department Label */
+.member-department {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--member-color, #22c55e);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+  padding: 0.4rem 1rem;
+  background: color-mix(in srgb, var(--member-color, #22c55e) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--member-color, #22c55e) 30%, transparent);
+  border-radius: 16px;
+  display: inline-block;
+}
+
+/* Member Image */
+.member-image {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--member-color, rgba(34, 197, 94, 0.3));
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px color-mix(in srgb, var(--member-color, #22c55e) 20%, transparent);
+}
+
+.member-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.member-card:hover .member-image img {
+  transform: scale(1.1);
+}
+
+.member-glow {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #22c55e, #16a34a, #15803d);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.member-card:hover .member-glow,
+.member-card.selected .member-glow {
+  opacity: 1;
+  animation: rotate 3s linear infinite;
+}
+
+/* Member Info */
+.member-info {
+  position: relative;
+  z-index: 2;
+}
+
+.member-name {
+  color: #000;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.member-title {
+  color: #22c55e;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.member-role {
+  color: #666;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+/* Modal */
+.member-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+}
+
+.member-modal {
+  background: #ffffff;
+  border-radius: 24px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #666;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+.modal-content {
+  padding: 3rem;
+}
+
+.modal-header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #22c55e;
+  flex-shrink: 0;
+}
+
+.modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-info {
+  flex: 1;
+}
+
+.modal-name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 0.5rem;
+}
+
+.modal-title {
+  font-size: 1.2rem;
+  color: #22c55e;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.modal-department {
+  color: #666;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.modal-body {
+  color: #333;
+  line-height: 1.7;
+}
+
+.modal-bio {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.modal-achievements h4 {
+  color: #000;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.modal-achievements ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-achievements li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.modal-achievements li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #22c55e;
+  font-weight: bold;
+}
+
+/* Animations */
+@keyframes floatShape {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-30px) translateX(30px) rotate(120deg);
+  }
+  66% {
+    transform: translateY(20px) translateX(-20px) rotate(240deg);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .head-card {
+    width: 260px;
+    height: 340px;
+  }
+  
+  .level-1 .members-row {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .leadership-title {
+    font-size: 4rem;
+  }
+  
+  .team-container {
+    gap: 3rem;
+  }
+  
+  .head-card {
+    width: 240px;
+    height: 320px;
+  }
+  
+  .chapter-card {
+    width: 220px;
+    height: 280px;
+  }
+  
+  .team-card {
+    width: 200px;
+    height: 260px;
+  }
+  
+  .level-1 .members-row {
+    gap: 1rem;
+  }
+  
+  .level-2 .members-row,
+  .level-3 .members-row {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .leadership-hero {
+    padding: 1rem 0 1rem;
+  }
+  
+  .leadership-title {
+    font-size: 3rem;
+  }
+  
+  .leadership-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .pyramid-section {
+    padding: 2rem 0 4rem;
+  }
+  
+  .members-row {
+    flex-direction: column;
+    gap: 1rem !important;
+  }
+  
+  .ceo-card,
+  .c-suite-card,
+  .dept-card {
+    width: 280px;
+    height: 300px;
+  }
+  
+  .modal-content {
+    padding: 2rem;
+  }
+  
+  .modal-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .modal-name {
+    font-size: 1.5rem;
+  }
+}
+
+/* Discord Recruitment Card */
+.discord-recruitment {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.02), rgba(255, 255, 255, 1));
+  position: relative;
+}
+
+.discord-recruitment::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  right: 10%;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(114, 137, 218, 0.1), rgba(114, 137, 218, 0.05));
+  animation: floatShape 20s ease-in-out infinite;
+}
+
+.discord-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(114, 137, 218, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.discord-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(114, 137, 218, 0.05), rgba(114, 137, 218, 0.02));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 24px;
+}
+
+.discord-card:hover::before {
+  opacity: 1;
+}
+
+.discord-card:hover {
+  border-color: rgba(114, 137, 218, 0.3);
+  box-shadow: 0 20px 60px rgba(114, 137, 218, 0.15);
+}
+
+.discord-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.discord-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #7289da, #5865f2);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 8px 25px rgba(114, 137, 218, 0.3);
+}
+
+.discord-icon svg {
+  width: 40px;
+  height: 40px;
+  color: #ffffff;
+}
+
+.discord-info {
+  flex: 1;
+}
+
+.discord-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.discord-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+
+
+.discord-button {
+  background: linear-gradient(135deg, #7289da, #5865f2);
+  color: #ffffff;
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(114, 137, 218, 0.3);
+  flex-shrink: 0;
+  min-width: 180px;
+  justify-content: center;
+}
+
+.discord-button:hover {
+  box-shadow: 0 8px 30px rgba(114, 137, 218, 0.4);
+  transform: translateY(-2px);
+}
+
+.button-text {
+  font-weight: 600;
+}
+
+.button-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.discord-button:hover .button-arrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .discord-recruitment {
+    padding: 3rem 0;
+  }
+  
+  .discord-card {
+    padding: 2rem;
+  }
+  
+  .discord-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+  
+  .discord-title {
+    font-size: 1.8rem;
+  }
+  
+  .discord-subtitle {
+    font-size: 1rem;
+  }
+  
+
+}
+
+@media (max-width: 480px) {
+  .discord-card {
+    padding: 1.5rem;
+  }
+  
+  .discord-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .discord-icon svg {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .discord-title {
+    font-size: 1.5rem;
+  }
+  
+
+  
+  .discord-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+    min-width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .leadership-title {
+    font-size: 2.5rem;
+  }
+  
+  .ceo-card,
+  .c-suite-card,
+  .dept-card {
+    width: 260px;
+    height: 280px;
+  }
+  
+  .modal-content {
+    padding: 1.5rem;
+  }
+}
