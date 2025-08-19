@@ -53,7 +53,7 @@ const timelineEvents: TimelineEvent[] = [
     date: 'April 2025',
     title: 'Ingenious $1,000 Award',
     description: 'Innovation recognized. Vision validated.',
-    image: '/Ingenious+ Regional Winner $1,000.jpeg',
+    image: '/Ingenious_Regional_Winner_1000.jpeg',
     metrics: [
       { value: '$1,000', label: 'Award' },
       { value: 'Validated', label: 'Innovation' }
