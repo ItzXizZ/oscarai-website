@@ -20,40 +20,40 @@ const BusinessPlan: React.FC = () => {
   // const [selectedPhase, setSelectedPhase] = useState<string | null>('phase-1');
 
   // const strategyPhases: StrategyPhase[] = [
-    {
-      id: 'phase-1',
-      name: 'Advertising Strategy',
-      timeline: 'Aug 1-21, 2025',
-      stage: 'Foundation & Growth',
-      status: 'current',
-      goals: ['Discord Development', 'LinkedIn Advertising', 'Social Media Expansion', 'Engineering Intern Recruitment'],
-      description: 'Building social media foundation through Discord and LinkedIn, then expanding to Instagram and TikTok for viral growth.',
-      keyMetrics: ['50 Discord members by Aug 1st', '10 engineering interns by Aug 7th', '1,000+ followers by Aug 21st'],
-      deliverables: ['Social media team of 15 members', 'UGC strategy implementation', 'Pre-order website launch']
-    },
-    {
-      id: 'phase-2',
-      name: 'Prototyping & Shipping',
-      timeline: 'Aug 5 - Oct 2025',
-      stage: 'Product Development',
-      status: 'upcoming',
-      goals: ['Design Finalization', 'Initial Shipping', 'Commercial Readiness', 'Cloud Integration'],
-      description: 'Transitioning from prototype to market-ready product with cloud functionality and school partnerships.',
-      keyMetrics: ['11 units shipped by Aug 31st', '25+ units by Sep 30th', '$10,000+ revenue by Dec 2025'],
-      deliverables: ['Beta testing program', 'School app development', 'Factory production transition']
-    },
-    {
-      id: 'phase-3',
-      name: 'School Partnerships',
-      timeline: 'Aug 25, 2025+',
-      stage: 'Market Expansion',
-      status: 'upcoming',
-      goals: ['Email Outreach', 'Media Relations', 'Educational Services', 'Institutional Integration'],
-      description: 'Establishing credibility through educational partnerships and comprehensive sustainability programming.',
-      keyMetrics: ['100+ school emails by Aug 25th', '10+ official partnerships', 'Media coverage achieved'],
-      deliverables: ['School signup portal', 'Workshop development', 'Lecture series creation']
-    }
-  ];
+  //   {
+  //     id: 'phase-1',
+  //     name: 'Advertising Strategy',
+  //     timeline: 'Aug 1-21, 2025',
+  //     stage: 'Foundation & Growth',
+  //     status: 'current',
+  //     goals: ['Discord Development', 'LinkedIn Advertising', 'Social Media Expansion', 'Engineering Intern Recruitment'],
+  //     description: 'Building social media foundation through Discord and LinkedIn, then expanding to Instagram and TikTok for viral growth.',
+  //     keyMetrics: ['50 Discord members by Aug 1st', '10 engineering interns by Aug 7th', '1,000+ followers by Aug 21st'],
+  //     deliverables: ['Social media team of 15 members', 'UGC strategy implementation', 'Pre-order website launch']
+  //   },
+  //   {
+  //     id: 'phase-2',
+  //     name: 'Prototyping & Shipping',
+  //     timeline: 'Aug 5 - Oct 2025',
+  //     stage: 'Product Development',
+  //     status: 'upcoming',
+  //     goals: ['Design Finalization', 'Initial Shipping', 'Commercial Readiness', 'Cloud Integration'],
+  //     description: 'Transitioning from prototype to market-ready product with cloud functionality and school partnerships.',
+  //     keyMetrics: ['11 units shipped by Aug 31st', '25+ units by Sep 30th', '$10,000+ revenue by Dec 2025'],
+  //     deliverables: ['Beta testing program', 'School app development', 'Factory production transition']
+  //   },
+  //   {
+  //     id: 'phase-3',
+  //     name: 'School Partnerships',
+  //     timeline: 'Aug 25, 2025+',
+  //     stage: 'Market Expansion',
+  //     status: 'upcoming',
+  //     goals: ['Email Outreach', 'Media Relations', 'Educational Services', 'Institutional Integration'],
+  //     description: 'Establishing credibility through educational partnerships and comprehensive sustainability programming.',
+  //     keyMetrics: ['100+ school emails by Aug 25th', '10+ official partnerships', 'Media coverage achieved'],
+  //     deliverables: ['School signup portal', 'Workshop development', 'Lecture series creation']
+  //   }
+  // ];
 
 
 
