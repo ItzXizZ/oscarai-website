@@ -1,10 +1,11 @@
-import React, { useState } from "react"
+import React from "react"
 import { motion } from 'framer-motion'
 import CardStack from "./CardStack"
 import "./VideoGallery.css"
 
 export default function VideoGallery() {
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+  // Removed unused state variable
+  // const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
 
   // Array of unlisted YouTube video URLs - replace these with your actual video links
   // Example format: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
@@ -15,9 +16,10 @@ export default function VideoGallery() {
     "https://www.youtube.com/watch?v=zk3CPQxi51A",
   ]
 
-  const handleVideoChange = (index: number) => {
-    setCurrentVideoIndex(index)
-  }
+  // Removed unused function
+  // const handleVideoChange = (index: number) => {
+  //   setCurrentVideoIndex(index)
+  // }
 
   return (
     <div className="video-gallery" id="video-gallery">
@@ -43,8 +45,7 @@ export default function VideoGallery() {
         <div className="container">
           <div className="cardStackWrapper">
             <CardStack 
-              images={youtubeVideos} 
-              onImageChange={handleVideoChange}
+              images={youtubeVideos}
             />
           </div>
         </div>

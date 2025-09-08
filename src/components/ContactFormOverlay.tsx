@@ -38,7 +38,7 @@ const ContactFormOverlay: React.FC<ContactFormOverlayProps> = ({
     setErrorMessage('');
 
     try {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('contact_form')
         .insert([
           {

@@ -48,7 +48,7 @@ export default function CardStack({ images, onImageChange }: CardStackProps) {
     // Convert various Google Drive URL formats to embed URLs
     if (url.includes('/file/d/')) {
       // Format: https://drive.google.com/file/d/{fileId}/view
-      const fileId = url.match(/\/file\/d\/([^\/]+)/)?.[1]
+      const fileId = url.match(/\/file\/d\/([^/]+)/)?.[1]
       if (fileId) {
         return `https://drive.google.com/file/d/${fileId}/preview`
       }
@@ -242,8 +242,6 @@ export default function CardStack({ images, onImageChange }: CardStackProps) {
         style={getOptimalCardStyle()}
       >
         {images.map((image, index) => {
-          const isVideo = image.endsWith(".mp4") || isYouTubeLink(image) || isGoogleDriveLink(image)
-
           return (
             <div
               key={index}

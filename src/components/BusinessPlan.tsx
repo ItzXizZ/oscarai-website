@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React from 'react';
 import './BusinessPlan.css';
 
 interface StrategyPhase {
@@ -17,9 +16,10 @@ interface StrategyPhase {
 
 
 const BusinessPlan: React.FC = () => {
-  const [selectedPhase, setSelectedPhase] = useState<string | null>('phase-1');
+  // Commented out unused variables for future roadmap feature
+  // const [selectedPhase, setSelectedPhase] = useState<string | null>('phase-1');
 
-  const strategyPhases: StrategyPhase[] = [
+  // const strategyPhases: StrategyPhase[] = [
     {
       id: 'phase-1',
       name: 'Advertising Strategy',
@@ -59,23 +59,24 @@ const BusinessPlan: React.FC = () => {
 
 
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'completed': return '#22c55e';
-      case 'current': return '#3b82f6';
-      case 'upcoming': return '#f59e0b';
-      default: return '#6b7280';
-    }
-  };
+  // Commented out unused helper functions for future roadmap feature
+  // const getStatusColor = (status: string) => {
+  //   switch (status) {
+  //     case 'completed': return '#22c55e';
+  //     case 'current': return '#3b82f6';
+  //     case 'upcoming': return '#f59e0b';
+  //     default: return '#6b7280';
+  //   }
+  // };
 
-  const getStatusLabel = (status: string) => {
-    switch (status) {
-      case 'completed': return 'Completed';
-      case 'current': return 'In Progress';
-      case 'upcoming': return 'Planned';
-      default: return 'Unknown';
-    }
-  };
+  // const getStatusLabel = (status: string) => {
+  //   switch (status) {
+  //     case 'completed': return 'Completed';
+  //     case 'current': return 'In Progress';
+  //     case 'upcoming': return 'Planned';
+  //     default: return 'Unknown';
+  //   }
+  // };
 
   return (
     <div className="business-plan" id="fundraising">
