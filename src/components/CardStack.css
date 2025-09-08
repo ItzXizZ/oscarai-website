@@ -1,0 +1,296 @@
+.cardStack {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.stackContainer {
+  position: relative;
+  height: 450px;
+  width: 100%;
+  perspective: 1000px;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 15px 35px rgba(52, 0, 2, 0.2), 0 5px 15px rgba(52, 0, 2, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  border: 2px solid rgba(52, 0, 2, 0.1);
+}
+
+.card.animating {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cardMedia {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* YouTube Video Styles */
+.youtubeCard {
+  cursor: default; /* YouTube iframe handles its own interactions */
+}
+
+.videoContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #000;
+}
+
+.videoIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 20px;
+}
+
+/* Google Drive Card Styles */
+.googleDriveCard {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border: 2px solid #dee2e6;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.googleDriveCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(52, 0, 2, 0.25), 0 8px 20px rgba(52, 0, 2, 0.15);
+  border-color: #340002;
+}
+
+.googleDriveThumbnail {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+  color: white;
+  text-align: center;
+  padding: 2rem;
+}
+
+.playButton {
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.googleDriveCard:hover .playButton {
+  transform: scale(1.1);
+}
+
+.googleDriveLabel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.googleDriveLabel span {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.googleDriveLabel small {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  font-weight: 400;
+}
+
+.cardNumber {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #340002;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(52, 0, 2, 0.4), 0 2px 8px rgba(52, 0, 2, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Navigation overlay styles */
+.navOverlay {
+  position: absolute;
+  top: 0;
+  height: 100%; /* Full height for all content types */
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 20;
+}
+
+.navOverlay:hover {
+  background: transparent;
+}
+
+.navLeft {
+  left: 0;
+  border-radius: 20px 0 0 20px;
+}
+
+.navRight {
+  right: 0;
+  border-radius: 0 20px 20px 0;
+}
+
+/* Remove video-specific height restrictions - YouTube iframe handles its own controls */
+.navOverlay.videoNav {
+  height: 100%; /* Use full height for all content types */
+}
+
+.navOverlay.videoNav.navLeft {
+  border-radius: 20px 0 0 20px; /* Restore full border radius */
+}
+
+.navOverlay.videoNav.navRight {
+  border-radius: 0 20px 20px 0; /* Restore full border radius */
+}
+
+.navArrow {
+  color: #340002;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.9), 0 1px 4px rgba(0, 0, 0, 0.3);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.8);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  /* Ensure perfect centering */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Additional centering for text content */
+  line-height: 1;
+  text-align: center;
+}
+
+.navOverlay:hover .navArrow {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .cardStack {
+    gap: 1rem;
+  }
+  
+  .stackContainer {
+    height: 350px;
+  }
+  
+  .navOverlay {
+    width: 25%;
+    height: 100%; /* Maintain full height on mobile */
+  }
+  
+  .navOverlay.videoNav {
+    height: 100%; /* Use full height for all content types on mobile */
+  }
+  
+  .navArrow {
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    /* Maintain centering on mobile */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+    text-align: center;
+  }
+  
+  .cardNumber {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+  
+  .googleDriveThumbnail {
+    padding: 1.5rem;
+  }
+  
+  .googleDriveLabel span {
+    font-size: 1rem;
+  }
+  
+  .googleDriveLabel small {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stackContainer {
+    height: 300px;
+  }
+  
+  .navOverlay {
+    width: 20%;
+    height: 100%; /* Maintain full height on small mobile */
+  }
+  
+  .navOverlay.videoNav {
+    height: 100%; /* Use full height for all content types on small mobile */
+  }
+  
+  .navArrow {
+    font-size: 1.8rem;
+    width: 35px;
+    height: 35px;
+    /* Maintain centering on small mobile */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+    text-align: center;
+  }
+  
+  .googleDriveThumbnail {
+    padding: 1rem;
+  }
+  
+  .googleDriveLabel span {
+    font-size: 0.9rem;
+  }
+  
+  .googleDriveLabel small {
+    font-size: 0.75rem;
+  }
+}

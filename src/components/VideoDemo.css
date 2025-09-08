@@ -96,6 +96,10 @@
   object-fit: cover;
   position: relative;
   z-index: 1;
+  /* Ensure smooth looping */
+  will-change: transform;
+  /* Prevent any potential stuttering during loop */
+  backface-visibility: hidden;
 }
 
 .video-loading {
@@ -176,10 +180,10 @@
 .tiktok-sidebar {
   position: absolute;
   right: 0.1rem;
-  bottom: 6rem;
+  bottom: 7rem;
   display: flex;
   flex-direction: column;
-  gap: 0rem;
+  gap: 0.5rem;
   z-index: 10;
   pointer-events: auto;
 }
@@ -192,7 +196,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 50px 20px 20px;
+  padding: 60px 16px 20px;
   background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, transparent 100%);
   pointer-events: auto;
 }
@@ -204,16 +208,19 @@
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, #333333, #666666);
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-weight: 700;
-  font-size: 16px;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .profile-info {
@@ -223,21 +230,17 @@
 .username {
   font-size: 14px;
   font-weight: 600;
-  margin-bottom: 2px;
-}
-
-.subtitle {
-  font-size: 12px;
-  opacity: 0.8;
+  margin-bottom: 0;
+  color: white;
 }
 
 .follow-btn {
   background: rgba(255, 255, 255, 0.9);
   color: #000000;
   border: none;
-  padding: 8px 16px;
-  border-radius: 20px;
-  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 11px;
   font-weight: 600;
   cursor: pointer;
   pointer-events: auto;
@@ -247,6 +250,11 @@
 .follow-btn:hover {
   background: white;
   transform: scale(1.05);
+}
+
+.follow-btn.following {
+  background: #22c55e;
+  color: white;
 }
 
 .overlay-footer {
@@ -281,7 +289,7 @@
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  padding: 8px;
+  padding: 4px;
   border-radius: 50px;
 }
 
@@ -299,8 +307,8 @@
 }
 
 .sidebar-icon {
-  font-size: 2.2rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  margin-bottom: 0.25rem;
   cursor: pointer;
   transition: all 0.3s ease;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
@@ -310,12 +318,10 @@
   transform: scale(1.2);
 }
 
-.sidebar-icon.spinning {
-  animation: spin 3s linear infinite;
-}
+
 
 .sidebar-count {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: bold;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
@@ -325,7 +331,7 @@
   position: absolute;
   right: 60px;
   bottom: 200px;
-  font-size: 1.5rem;
+  font-size: 1rem;
   color: #ff3040;
   pointer-events: none;
   animation: floatHeart 2s ease-out forwards;
@@ -383,7 +389,7 @@
   }
   
   .overlay-header {
-    padding: 35px 14px 14px;
+    padding: 50px 14px 16px;
   }
   
   .overlay-footer {

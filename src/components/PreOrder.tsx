@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import ContactFormOverlay from './ContactFormOverlay';
 import './PreOrder.css';
 
 interface Product {
@@ -29,6 +30,7 @@ const PreOrder: React.FC = () => {
     'oscar-3d-files': 0,
     'oscar-production': 0
   });
+  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
 
 
   const products: Product[] = [
@@ -36,54 +38,54 @@ const PreOrder: React.FC = () => {
       id: 'oscar-lite',
       name: 'OscarAI Lite',
       price: 150,
-      description: '3D printed version of Oscar - perfect for testing and education. Ships ready to use.',
+      description: 'Coming Soon',
       features: [
-        'Complete 3D printed unit',
-        'Basic sorting functionality',
-        'Educational materials included',
-        'Assembly instructions',
-        '6-month support',
-        'Great for prototyping'
+        'Coming Soon',
+        'Coming Soon',
+        'Coming Soon',
+        'Coming Soon',
+        'Coming Soon',
+        'Coming Soon'
       ],
       image: '/OscarAI Lite $150.png',
-      availability: 'In Stock',
-      deliveryTime: 'Ships in 2-3 weeks',
+      availability: 'Coming Soon',
+      deliveryTime: 'Coming Soon',
       category: 'consumer'
     },
     {
       id: 'oscar-3d-files',
       name: 'OscarAI 3D Models',
       price: 100,
-      description: 'Complete 3D printable files package. Print your own Oscar at home or makerspace.',
+      description: 'Coming Soon',
       features: [
-        'Complete STL file package',
-        'Detailed assembly guide',
-        'Parts list & sourcing guide',
-        'Print settings recommendations',
-        'Community forum access',
-        'Lifetime file updates'
+        'Coming Soon',
+        'Coming Soon',
+        'Coming Soon',
+        'Coming Soon',
+        'Coming Soon',
+        'Coming Soon'
       ],
       image: '/OscarAI 3D Printed Models $100.png',
-      availability: 'Digital Download',
-      deliveryTime: 'Instant Download',
+      availability: 'Coming Soon',
+      deliveryTime: 'Coming Soon',
       category: 'business'
     },
     {
       id: 'oscar-production',
       name: 'OscarAI Production Model',
       price: 550,
-      description: 'Full working production model - our flagship AI-powered waste sorting system.',
+      description: 'Coming Soon',
       features: [
-        '99.7% sorting accuracy',
-        'Advanced AI classification',
-        'Real-time analytics',
-        'Mobile app integration',
-        '2-year full warranty',
-        'Professional installation'
+        'Coming Soon',
+        'Coming Soon',
+        'Coming Soon',
+        'Coming Soon',
+        'Coming Soon',
+        'Coming Soon'
       ],
       image: '/Prototype 4 Shot.jpg',
-      availability: 'Limited Production',
-      deliveryTime: 'Ships in 6-8 weeks',
+      availability: 'Coming Soon',
+      deliveryTime: 'Coming Soon',
       category: 'enterprise'
     }
   ];
@@ -273,12 +275,13 @@ const PreOrder: React.FC = () => {
               
               <button 
                 className="btn btn-primary checkout-btn"
+                onClick={() => setIsContactFormOpen(true)}
               >
-                Proceed to Checkout
+                Join Waitlist
               </button>
               
               <p className="checkout-note">
-                Secure checkout • No payment until shipping • 30-day return policy
+                We are not yet processing public orders • Join our waitlist for updates • No payment required
               </p>
             </div>
           </div>
@@ -287,8 +290,8 @@ const PreOrder: React.FC = () => {
 
 
 
-      {/* FAQ Section */}
-      <section className="faq-section">
+      {/* FAQ Section - Commented Out */}
+      {/* <section className="faq-section">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -329,7 +332,14 @@ const PreOrder: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      {/* Contact Form Overlay */}
+      <ContactFormOverlay
+        isOpen={isContactFormOpen}
+        onClose={() => setIsContactFormOpen(false)}
+        orderTotal={hasItems ? orderSummary.total : undefined}
+      />
     </div>
   );
 };

@@ -7,6 +7,8 @@ const VideoDemo: React.FC = () => {
   const [likes, setLikes] = useState(12400);
   const [comments, setComments] = useState(892);
   const [isLiked, setIsLiked] = useState(false);
+  const [isFollowing, setIsFollowing] = useState(false);
+  const [isStarred, setIsStarred] = useState(false);
   const [floatingHearts, setFloatingHearts] = useState<number[]>([]);
 
   const handleVideoLoad = () => {
@@ -32,16 +34,22 @@ const VideoDemo: React.FC = () => {
       setTimeout(() => {
         setFloatingHearts(prev => prev.filter(id => id !== heartId));
       }, 2000);
-      
-      // Reset like state after a delay
-      setTimeout(() => {
-        setIsLiked(false);
-      }, 1000);
+    } else {
+      setLikes(prev => prev - 1);
+      setIsLiked(false);
     }
   };
 
   const handleComment = () => {
     setComments(prev => prev + 1);
+  };
+
+  const handleFollow = () => {
+    setIsFollowing(!isFollowing);
+  };
+
+  const handleStar = () => {
+    setIsStarred(!isStarred);
   };
 
   const formatCount = (count: number) => {
@@ -75,9 +83,15 @@ const VideoDemo: React.FC = () => {
                 preload="auto"
                 onLoadedData={handleVideoLoad}
                 onError={handleVideoError}
+                onEnded={(e) => {
+                  // Ensure video restarts if loop doesn't work
+                  const video = e.target as HTMLVideoElement;
+                  video.currentTime = 0;
+                  video.play();
+                }}
               >
-                <source src="/oscarvideo.mov" type="video/quicktime" />
-                <source src="/oscarvideo.mov" type="video/mp4" />
+                <source src="/IMG_0728.mov" type="video/quicktime" />
+                <source src="/IMG_0728.mov" type="video/mp4" />
               </video>
               
               {!isLoaded && !hasError && (
@@ -100,13 +114,19 @@ const VideoDemo: React.FC = () => {
             <div className="video-overlay">
               <div className="overlay-header">
                 <div className="profile">
-                  <div className="avatar">O</div>
+                  <div className="avatar">
+                    <img src="/OscarAI_logo.png" alt="OscarAI" />
+                  </div>
                   <div className="profile-info">
-                    <div className="username">oscar_ai</div>
-                    <div className="subtitle">AI Waste Management</div>
+                    <div className="username">OscarAI</div>
                   </div>
                 </div>
-                <button className="follow-btn">Follow</button>
+                <button 
+                  className={`follow-btn ${isFollowing ? 'following' : ''}`}
+                  onClick={handleFollow}
+                >
+                  {isFollowing ? 'Following' : 'Follow'}
+                </button>
               </div>
               
               <div className="tiktok-sidebar">
@@ -126,12 +146,14 @@ const VideoDemo: React.FC = () => {
                   <div className="sidebar-icon">💬</div>
                   <div className="sidebar-count">{formatCount(comments)}</div>
                 </div>
-                <div className="sidebar-item">
-                  <div className="sidebar-icon">📤</div>
+                <div 
+                  className="sidebar-item"
+                  onClick={handleStar}
+                >
+                  <div className="sidebar-icon" style={{ color: isStarred ? '#ffd700' : 'white' }}>
+                    ⭐
+                  </div>
                   <div className="sidebar-count">456</div>
-                </div>
-                <div className="sidebar-item">
-                  <div className="sidebar-icon spinning">🎵</div>
                 </div>
               </div>
               
@@ -142,7 +164,7 @@ const VideoDemo: React.FC = () => {
               
               <div className="overlay-footer">
                 <div className="description">
-                  <strong>oscar_ai</strong> Revolutionary waste sorting technology
+                  <strong>OscarAI:</strong> AI waste sorting technology
                 </div>
                 <div className="hashtags">
                   #AI #Sustainability #Innovation #WasteManagement

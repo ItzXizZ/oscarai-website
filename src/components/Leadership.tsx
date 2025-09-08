@@ -13,6 +13,7 @@ interface LeadershipMember {
   bio: string;
   achievements: string[];
   connections: string[];
+  linkedin?: string;
 }
 
 const Leadership: React.FC = () => {
@@ -25,14 +26,15 @@ const leadershipData: LeadershipMember[] = [
     {
       id: 'management-head',
       name: 'Ethan Curtis',
-      title: 'Head of Management',
-      role: 'Strategic Leadership',
+      title: 'Head of Management & Engineering',
+      role: 'Strategic & Technical Leadership',
       department: 'Management',
       level: 1,
       image: '/ethan.jpg',
-      bio: 'Leading OscarAI\'s strategic vision and operational excellence.',
-      achievements: ['Founded OscarAI', 'Strategic Visionary', 'Innovation Leader'],
-      connections: ['management-chapter-1', 'management-chapter-2']
+      bio: 'Leading OscarAI\'s strategic vision, operational excellence, and technical innovation.',
+      achievements: ['Founded OscarAI', 'Strategic Visionary', 'Technical Innovation Leader'],
+      connections: ['management-chapter-1', 'management-chapter-2'],
+      linkedin: 'https://www.linkedin.com/in/futuretonystark/'
     },
     {
       id: 'engineering-head',
@@ -44,7 +46,8 @@ const leadershipData: LeadershipMember[] = [
       image: '/elmond.jpg',
       bio: 'Driving cutting-edge AI development and technical innovation.',
       achievements: ['AI Architecture Expert', 'Full-Stack Development', 'Technical Innovation'],
-      connections: ['engineering-chapter-1', 'engineering-chapter-2']
+      connections: ['engineering-chapter-1', 'engineering-chapter-2'],
+      linkedin: 'https://www.linkedin.com/in/elmond-pattanan-829b842a9/'
     },
     {
       id: 'marketing-head',
@@ -56,7 +59,8 @@ const leadershipData: LeadershipMember[] = [
       image: '/tanjim.png',
       bio: 'Building OscarAI\'s brand and driving market expansion.',
       achievements: ['Digital Marketing Expert', 'Brand Strategy', 'Growth Hacking'],
-      connections: ['marketing-chapter-1', 'marketing-chapter-2']
+      connections: ['marketing-chapter-1', 'marketing-chapter-2'],
+      linkedin: 'https://www.linkedin.com/in/tanjchow/'
     },
     // Finance head temporarily hidden
     // {
@@ -72,182 +76,6 @@ const leadershipData: LeadershipMember[] = [
     //   connections: ['finance-chapter-1']
     // },
     
-    // Level 2 - Chapter Heads
-    {
-      id: 'management-chapter-1',
-      name: 'TBD',
-      title: 'Chapter Head - Operations',
-      role: 'Operational Excellence',
-      department: 'Management',
-      level: 2,
-      image: '/generic.png',
-      bio: 'Leading operational strategy and process optimization.',
-      achievements: ['Position Available', 'Operations Expert Needed', 'Growth Opportunity'],
-      connections: []
-    },
-    {
-      id: 'management-chapter-2',
-      name: 'TBD',
-      title: 'Chapter Head - Strategy',
-      role: 'Strategic Planning',
-      department: 'Management',
-      level: 2,
-      image: '/generic.png',
-      bio: 'Developing long-term strategic initiatives and partnerships.',
-      achievements: ['Position Available', 'Strategy Expert Needed', 'Leadership Role'],
-      connections: []
-    },
-    
-    {
-      id: 'engineering-chapter-1',
-      name: 'TBD',
-      title: 'Chapter Head - AI/ML',
-      role: 'AI Development',
-      department: 'Engineering',
-      level: 2,
-      image: '/generic.png',
-      bio: 'Leading AI research and machine learning development.',
-      achievements: ['Position Available', 'AI Expert Needed', 'Innovation Focus'],
-      connections: ['eng-team-1', 'eng-team-2']
-    },
-    {
-      id: 'engineering-chapter-2',
-      name: 'TBD',
-      title: 'Chapter Head - Platform',
-      role: 'Platform Development',
-      department: 'Engineering',
-      level: 2,
-      image: '/generic.png',
-      bio: 'Building scalable systems and infrastructure.',
-      achievements: ['Position Available', 'Platform Expert Needed', 'Technical Leadership'],
-      connections: ['eng-team-3', 'eng-team-4']
-    },
-    
-    {
-      id: 'marketing-chapter-1',
-      name: 'TBD',
-      title: 'Chapter Head - Digital',
-      role: 'Digital Marketing',
-      department: 'Marketing',
-      level: 2,
-      image: '/generic.png',
-      bio: 'Leading digital marketing campaigns and online presence.',
-      achievements: ['Position Available', 'Digital Expert Needed', 'Growth Focus'],
-      connections: ['marketing-team-1', 'marketing-team-2']
-    },
-    {
-      id: 'marketing-chapter-2',
-      name: 'TBD',
-      title: 'Chapter Head - Brand',
-      role: 'Brand Strategy',
-      department: 'Marketing',
-      level: 2,
-      image: '/generic.png',
-      bio: 'Developing brand identity and strategic partnerships.',
-      achievements: ['Position Available', 'Brand Expert Needed', 'Creative Leadership'],
-      connections: ['marketing-team-3']
-    },
-    
-    // Finance chapter head temporarily hidden
-    // {
-    //   id: 'finance-chapter-1',
-    //   name: 'TBD',
-    //   title: 'Chapter Head - Operations',
-    //   role: 'Financial Operations',
-    //   department: 'Finance',
-    //   level: 2,
-    //   image: '/generic.png',
-    //   bio: 'Managing financial operations and strategic planning.',
-    //   achievements: ['Position Available', 'Finance Expert Needed', 'Strategic Role'],
-    //   connections: []
-    // },
-    
-    // Level 3 - Team Members
-    {
-      id: 'eng-team-1',
-      name: 'Alex Thompson',
-      title: 'Senior AI Engineer',
-      role: 'Computer Vision',
-      department: 'Engineering',
-      level: 3,
-      image: '/generic.png',
-      bio: 'Developing advanced computer vision algorithms for waste classification.',
-      achievements: ['Computer Vision Expert', 'Published Researcher', 'Innovation Driver'],
-      connections: []
-    },
-    {
-      id: 'eng-team-2',
-      name: 'Sarah Chen',
-      title: 'ML Engineer',
-      role: 'Machine Learning',
-      department: 'Engineering',
-      level: 3,
-      image: '/generic.png',
-      bio: 'Building and optimizing machine learning models.',
-      achievements: ['ML Specialist', 'Data Science Expert', 'Model Optimization'],
-      connections: []
-    },
-    {
-      id: 'eng-team-3',
-      name: 'David Kumar',
-      title: 'Full Stack Developer',
-      role: 'Platform Development',
-      department: 'Engineering',
-      level: 3,
-      image: '/generic.png',
-      bio: 'Creating scalable web applications and user interfaces.',
-      achievements: ['Full Stack Expert', 'UI/UX Focus', 'Scalable Systems'],
-      connections: []
-    },
-    {
-      id: 'eng-team-4',
-      name: 'Maria Rodriguez',
-      title: 'DevOps Engineer',
-      role: 'Infrastructure',
-      department: 'Engineering',
-      level: 3,
-      image: '/generic.png',
-      bio: 'Managing cloud infrastructure and deployment pipelines.',
-      achievements: ['DevOps Expert', 'Cloud Architecture', 'Automation Focus'],
-      connections: []
-    },
-    
-    {
-      id: 'marketing-team-1',
-      name: 'Jessica Park',
-      title: 'Digital Marketing Specialist',
-      role: 'Social Media & Content',
-      department: 'Marketing',
-      level: 3,
-      image: '/generic.png',
-      bio: 'Creating engaging content and managing social media presence.',
-      achievements: ['Content Creator', 'Social Media Expert', 'Brand Storyteller'],
-      connections: []
-    },
-    {
-      id: 'marketing-team-2',
-      name: 'Ryan Liu',
-      title: 'Growth Marketing Analyst',
-      role: 'Data & Analytics',
-      department: 'Marketing',
-      level: 3,
-      image: '/generic.png',
-      bio: 'Analyzing marketing performance and driving growth strategies.',
-      achievements: ['Data Analytics', 'Growth Hacking', 'Performance Optimization'],
-      connections: []
-    },
-    {
-      id: 'marketing-team-3',
-      name: 'Emily Zhang',
-      title: 'Brand Designer',
-      role: 'Visual Identity',
-      department: 'Marketing',
-      level: 3,
-      image: '/generic.png',
-      bio: 'Designing visual identity and brand materials.',
-      achievements: ['Visual Design', 'Brand Identity', 'Creative Direction'],
-      connections: []
-    }
   ];
 
   const departments = ['all', 'Management', 'Engineering', 'Marketing'];
@@ -257,13 +85,24 @@ const leadershipData: LeadershipMember[] = [
     if (activeDepartment === 'all') {
       return levelMembers;
     }
-    return levelMembers.filter(member => member.department === activeDepartment);
+    return levelMembers.filter(member => {
+      // Include Ethan in both Management and Engineering filters
+      if (member.id === 'management-head' && activeDepartment === 'Engineering') {
+        return true;
+      }
+      return member.department === activeDepartment;
+    });
   };
 
 
 
   const handleMemberClick = (memberId: string) => {
-    setSelectedMember(selectedMember === memberId ? null : memberId);
+    const member = leadershipData.find(m => m.id === memberId);
+    if (member && member.linkedin) {
+      window.open(member.linkedin, '_blank', 'noopener,noreferrer');
+    } else {
+      setSelectedMember(selectedMember === memberId ? null : memberId);
+    }
   };
 
   const handleLevelHover = (level: number) => {
@@ -341,7 +180,9 @@ const leadershipData: LeadershipMember[] = [
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                       style={{
-                        '--member-color': getDepartmentColor(member.department)
+                        '--member-color': member.id === 'management-head' && activeDepartment === 'Engineering' 
+                          ? getDepartmentColor('Engineering') 
+                          : getDepartmentColor(member.department)
                       } as React.CSSProperties}
                     >
                       <div className="member-image">
@@ -349,7 +190,16 @@ const leadershipData: LeadershipMember[] = [
                         <div className="member-glow"></div>
                       </div>
                       <div className="member-info">
-                        <div className="member-department">{member.department}</div>
+                        {member.id === 'management-head' ? (
+                          <div className="member-departments">
+                            <div className="member-department">Engineering</div>
+                            <div className="member-department">Management</div>
+                          </div>
+                        ) : (
+                          <div className="member-departments">
+                            <div className="member-department">{member.department}</div>
+                          </div>
+                        )}
                         <h3 className="member-name">{member.name}</h3>
                         <p className="member-title">{member.title}</p>
                         <p className="member-role">{member.role}</p>
@@ -360,89 +210,6 @@ const leadershipData: LeadershipMember[] = [
               </motion.div>
             )}
 
-            {/* Level 2 - Chapter Heads */}
-            {getLevelMembers(2).length > 0 && (
-              <motion.div 
-                className={`team-level level-2 ${activeLevel === 2 ? 'active' : ''}`}
-                onMouseEnter={() => handleLevelHover(2)}
-                onMouseLeave={() => setActiveLevel(null)}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                <div className="level-label">Chapter Heads</div>
-                <div className="members-row">
-                  {getLevelMembers(2).map((member, index) => (
-                    <motion.div
-                      key={member.id}
-                      className={`member-card chapter-card ${selectedMember === member.id ? 'selected' : ''}`}
-                      onClick={() => handleMemberClick(member.id)}
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      whileTap={{ scale: 0.95 }}
-                      initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                      style={{
-                        '--member-color': getDepartmentColor(member.department)
-                      } as React.CSSProperties}
-                    >
-                      <div className="member-image">
-                        <img src={member.image} alt={member.name} />
-                        <div className="member-glow"></div>
-                      </div>
-                      <div className="member-info">
-                        <div className="member-department">{member.department}</div>
-                        <h3 className="member-name">{member.name}</h3>
-                        <p className="member-title">{member.title}</p>
-                        <p className="member-role">{member.role}</p>
-                      </div>
-                    </motion.div>
-                          ))}
-                        </div>
-              </motion.div>
-            )}
-
-            {/* Level 3 - Team Members */}
-            {getLevelMembers(3).length > 0 && (
-              <motion.div 
-                className={`team-level level-3 ${activeLevel === 3 ? 'active' : ''}`}
-                onMouseEnter={() => handleLevelHover(3)}
-                onMouseLeave={() => setActiveLevel(null)}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
-                <div className="level-label">Team Members</div>
-                <div className="members-row">
-                  {getLevelMembers(3).map((member, index) => (
-                    <motion.div
-                      key={member.id}
-                      className={`member-card team-card ${selectedMember === member.id ? 'selected' : ''}`}
-                      onClick={() => handleMemberClick(member.id)}
-                      whileHover={{ scale: 1.05, y: -5 }}
-                      whileTap={{ scale: 0.95 }}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 1.0 + index * 0.1 }}
-                      style={{
-                        '--member-color': getDepartmentColor(member.department)
-                      } as React.CSSProperties}
-                    >
-                      <div className="member-image">
-                        <img src={member.image} alt={member.name} />
-                        <div className="member-glow"></div>
-                        </div>
-                      <div className="member-info">
-                        <div className="member-department">{member.department}</div>
-                        <h3 className="member-name">{member.name}</h3>
-                        <p className="member-title">{member.title}</p>
-                        <p className="member-role">{member.role}</p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            )}
           </div>
         </div>
       </section>

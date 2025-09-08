@@ -5,6 +5,7 @@ import OurStory from './components/OurStory';
 import Leadership from './components/Leadership';
 import BusinessPlan from './components/BusinessPlan';
 import PreOrder from './components/PreOrder';
+import VideoGallery from './components/VideoGallery';
 import BackToTop from './components/BackToTop';
 import './App.css';
 
@@ -15,6 +16,7 @@ const App: React.FC = () => {
       <main>
         <Hero />
         <OurStory />
+        <VideoGallery />
         <Leadership />
         <BusinessPlan />
         <PreOrder />

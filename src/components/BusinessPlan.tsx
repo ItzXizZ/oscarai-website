@@ -14,10 +14,7 @@ interface StrategyPhase {
   deliverables: string[];
 }
 
-interface SuccessMetric {
-  category: string;
-  targets: { label: string; value: string; timeline: string }[];
-}
+
 
 const BusinessPlan: React.FC = () => {
   const [selectedPhase, setSelectedPhase] = useState<string | null>('phase-1');
@@ -58,32 +55,7 @@ const BusinessPlan: React.FC = () => {
     }
   ];
 
-  const successMetrics: SuccessMetric[] = [
-    {
-      category: 'Financial Targets',
-      targets: [
-        { label: 'Q4 2025 Revenue', value: '$10,000+', timeline: 'Dec 2025' },
-        { label: 'Unit Sales', value: '25+ units', timeline: 'Sep 30th' },
-        { label: 'Pre-orders', value: '100+', timeline: 'Aug 21st' }
-      ]
-    },
-    {
-      category: 'Engagement Metrics',
-      targets: [
-        { label: 'Social Media Followers', value: '100,000+', timeline: 'Oct 2025' },
-        { label: 'Discord Community', value: '1,000+', timeline: 'Aug 2025' },
-        { label: 'Content Production', value: '3-5 daily', timeline: 'Ongoing' }
-      ]
-    },
-    {
-      category: 'Partnership Goals',
-      targets: [
-        { label: 'School Partnerships', value: '10+', timeline: 'Dec 2025' },
-        { label: 'Engineering Interns', value: '50+', timeline: 'Oct 2025' },
-        { label: 'Geographic Reach', value: 'North America', timeline: 'Dec 2025' }
-      ]
-    }
-  ];
+
 
 
 
@@ -107,8 +79,8 @@ const BusinessPlan: React.FC = () => {
 
   return (
     <div className="business-plan" id="fundraising">
-      {/* Hero Section */}
-      <section className="business-plan-hero">
+      {/* Roadmap Section - Commented Out */}
+      {/* <section className="business-plan-hero">
         <div className="container">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -124,7 +96,6 @@ const BusinessPlan: React.FC = () => {
         </div>
       </section>
 
-      {/* Strategy Timeline */}
       <section className="strategy-timeline">
         <div className="container">
 
@@ -206,51 +177,9 @@ const BusinessPlan: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
-      {/* Success Metrics */}
-      <section className="success-metrics">
-        <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="showcase-header"
-          >
-            <h2 className="section-title">Success Metrics</h2>
-          </motion.div>
 
-          <div className="metrics-categories">
-            {successMetrics.map((category, categoryIndex) => (
-              <motion.div
-                key={category.category}
-                className="metrics-category"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 + categoryIndex * 0.1 }}
-              >
-                <h3 className="category-title">{category.category}</h3>
-                <div className="category-targets">
-                  {category.targets.map((target, targetIndex) => (
-                    <motion.div
-                      key={target.label}
-                      className="target-card"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.3 + targetIndex * 0.1 }}
-                      whileHover={{ y: -5, scale: 1.02 }}
-                    >
-                      <div className="target-value">{target.value}</div>
-                      <div className="target-label">{target.label}</div>
-                      <div className="target-timeline">{target.timeline}</div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
 
     </div>

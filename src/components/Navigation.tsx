@@ -68,16 +68,6 @@ const Navigation: React.FC = () => {
           
           <div className="nav-links">
             <motion.a 
-              href="#fundraising" 
-              className="nav-link"
-              onClick={(e) => handleNavClick(e, 'fundraising')}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.2 }}
-            >
-              Fundraising
-            </motion.a>
-            <motion.a 
               href="#leadership" 
               className="nav-link"
               onClick={(e) => handleNavClick(e, 'leadership')}

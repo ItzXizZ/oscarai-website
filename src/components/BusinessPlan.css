@@ -1,6 +1,5 @@
 .business-plan {
   background: #ffffff;
-  min-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -329,91 +328,7 @@
   font-size: 1.2rem;
 }
 
-/* Success Metrics */
-.success-metrics {
-  padding: 4rem 0;
-  background: rgba(34, 197, 94, 0.02);
-}
 
-.showcase-header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-/* Success Metrics Categories */
-.metrics-categories {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.metrics-category {
-  background: #ffffff;
-  border-radius: 20px;
-  padding: 2.5rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-}
-
-.category-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 1.5rem;
-  text-align: center;
-  background: linear-gradient(135deg, #22c55e, #16a34a);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.category-targets {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.target-card {
-  background: rgba(34, 197, 94, 0.03);
-  border-radius: 16px;
-  padding: 1.5rem;
-  text-align: center;
-  border: 1px solid rgba(34, 197, 94, 0.1);
-  transition: all 0.3s ease;
-}
-
-.target-card:hover {
-  background: rgba(34, 197, 94, 0.05);
-  border-color: rgba(34, 197, 94, 0.2);
-  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.1);
-}
-
-.target-value {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #22c55e;
-  margin-bottom: 0.5rem;
-  line-height: 1;
-}
-
-.target-label {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #000;
-  margin-bottom: 0.25rem;
-}
-
-.target-timeline {
-  font-size: 0.85rem;
-  color: #666;
-  font-weight: 500;
-  padding: 0.25rem 0.75rem;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 12px;
-  display: inline-block;
-}
 
 /* Mission & Vision */
 .mission-vision {
