@@ -1,19 +1,6 @@
 import React from 'react';
 import './BusinessPlan.css';
 
-interface StrategyPhase {
-  id: string;
-  name: string;
-  timeline: string;
-  stage: string;
-  status: 'completed' | 'current' | 'upcoming';
-  goals: string[];
-  description: string;
-  keyMetrics: string[];
-  deliverables: string[];
-}
-
-
 
 const BusinessPlan: React.FC = () => {
   // Commented out unused variables for future roadmap feature
