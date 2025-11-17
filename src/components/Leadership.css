@@ -157,11 +157,13 @@
 /* Level-specific styling */
 .level-1 .members-row {
   gap: 2rem;
+  width: 100%;
   justify-content: center;
 }
 
 .level-2 .members-row {
   gap: 2rem;
+  width: 100%;
   justify-content: center;
 }
 
@@ -175,13 +177,12 @@
   position: relative;
   background: #ffffff;
   border-radius: 20px;
-  padding: 2rem;
   text-align: center;
   cursor: pointer;
+  padding: 2rem 1.5rem;
   transition: all 0.3s ease;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
 }
 
 .member-card::before {
@@ -213,14 +214,19 @@
 }
 
 /* Department Head Cards - Largest */
+
+
 .head-card {
-  width: 320px;
-  height: 380px;
+  width: 100%;
+  min-width: 280px;
+  height: auto;
+  min-height: 360px;
   border: 2px solid var(--member-color, rgba(34, 197, 94, 0.2));
   margin: 0 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  box-sizing: border-box;
 }
 
 .head-card .member-image {
@@ -232,16 +238,21 @@
 .head-card .member-name {
   font-size: 1.6rem;
   font-weight: 700;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: center;
+  line-height: 1.2;
 }
 
 /* Chapter Head Cards - Medium */
 .chapter-card {
-  width: 260px;
-  height: 320px;
+  width: 100%;
+  min-width: 220px;
+  height: auto;
+  min-height: 320px;
   border: 1px solid var(--member-color, rgba(34, 197, 94, 0.2));
+  box-sizing: border-box;
 }
 
 .chapter-card .member-image {
@@ -257,9 +268,12 @@
 
 /* Team Member Cards - Smaller */
 .team-card {
-  width: 240px;
-  height: 300px;
+  width: 100%;
+  min-width: 200px;
+  height: auto;
+  min-height: 300px;
   border: 1px solid var(--member-color, rgba(34, 197, 94, 0.15));
+  box-sizing: border-box;
 }
 
 .team-card .member-image {
@@ -297,10 +311,13 @@
   flex-direction: row;
   gap: 0.3rem;
   margin-bottom: 0.5rem;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
-  height: 2.8rem;
+  min-height: 2.8rem;
   align-items: center;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .member-departments .member-department {
@@ -312,13 +329,16 @@
   border: 1px solid color-mix(in srgb, var(--member-color, #22c55e) 30%, transparent);
   white-space: nowrap;
   flex-shrink: 1;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
 }
 
 /* Member Image */
 .member-image {
   position: relative;
   border-radius: 50%;
-  overflow: hidden;
   border: 3px solid var(--member-color, rgba(34, 197, 94, 0.3));
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px color-mix(in srgb, var(--member-color, #22c55e) 20%, transparent);
@@ -327,6 +347,7 @@
 .member-image img {
   width: 100%;
   height: 100%;
+  border-radius: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
@@ -362,8 +383,8 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 0 1.5rem;
-  margin-top: 1.5rem;
+  padding: 0 1rem;
+  margin-top: 2rem;
 }
 
 .member-name {
@@ -373,6 +394,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100%;
+  max-width: 100%;
 }
 
 .member-title {
@@ -383,6 +406,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100%;
+  max-width: 100%;
 }
 
 .member-role {
@@ -392,6 +417,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Modal */
@@ -557,19 +584,7 @@
   }
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .head-card {
-    width: 260px;
-    height: 340px;
-  }
-  
-  .level-1 .members-row {
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 1024px) {
+@media (min-width: 641px) {
   .leadership-title {
     font-size: 4rem;
   }
@@ -579,8 +594,8 @@
   }
   
   .head-card {
-    width: 240px;
-    height: 320px;
+    width: 340px;
+    height: 380px;
   }
   
   .chapter-card {
@@ -600,6 +615,40 @@
   .level-2 .members-row,
   .level-3 .members-row {
     gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .leadership-title {
+    font-size: 3rem;
+  }
+  
+  .leadership-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .pyramid-section {
+    padding: 2rem 0 4rem;
+  }
+  
+  .members-row {
+    flex-direction: column;
+    gap: 1rem !important;
+  }
+  
+
+  .modal-content {
+    padding: 2rem;
+  }
+  
+  .modal-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .modal-name {
+    font-size: 1.5rem;
   }
 }
 
@@ -623,6 +672,14 @@
   .members-row {
     flex-direction: column;
     gap: 1rem !important;
+  }
+  
+  .member-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .member-info {
+    margin-top: 1.5rem;
   }
   
   .ceo-card,

@@ -13,10 +13,19 @@ body {
   background-color: #ffffff;
   color: #000000;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 .App {
   min-height: 100vh;
+  margin-top: 2rem;
+  overflow-x: hidden;
+  
+}
+
+.App main {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Global Typography */
@@ -190,6 +199,14 @@ html {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .App {
+    margin-top: 1rem;
+  }
+  
+  .App main {
+    max-width: 100%;
+  }
+  
   .container {
     padding: 0 1rem;
   }

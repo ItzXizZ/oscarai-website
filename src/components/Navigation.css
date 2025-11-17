@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem 0;
+  padding: 1.25rem 0;
 }
 
 .nav-brand h1 {
@@ -71,6 +71,91 @@
   width: 100%;
 }
 
+.nav-logo{
+  height: 45px;
+  margin-top: 5px;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1001;
+}
+
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #22c55e;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 0;
+  overflow: hidden;
+}
+
+.mobile-menu.active {
+  display: flex;
+  padding: 1rem 0;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: #666666;
+  font-weight: 400;
+  font-size: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav-link:hover {
+  color: #22c55e;
+  background-color: rgba(34, 197, 94, 0.05);
+}
+
+.mobile-nav-link.btn-mobile {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: white;
+  border-radius: 25px;
+  margin: 1rem 2rem 0.5rem 2rem;
+  padding: 1rem;
+  border-bottom: none;
+}
+
+.mobile-nav-link.btn-mobile:hover {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  color: white;
+}
+
 @media (max-width: 768px) {
   .nav-content {
     padding: 1rem 0;
@@ -81,15 +166,10 @@
   }
   
   .nav-links {
-    gap: 1rem;
+    display: none;
   }
   
-  .nav-link {
-    font-size: 0.9rem;
-  }
-  
-  .nav-links .btn {
-    padding: 0.75rem 1.25rem;
-    font-size: 0.85rem;
+  .hamburger {
+    display: flex;
   }
 }
